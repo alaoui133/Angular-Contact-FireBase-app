@@ -9,7 +9,7 @@ Add Contact with form validation
 ![add](https://user-images.githubusercontent.com/29815600/219711370-213a237b-e24f-4f02-82d4-a426e00c9ce0.png)
 
 
-Edit and Update Contact form validation
+Edit and Update Contact with form validation
 
 ![edit](https://user-images.githubusercontent.com/29815600/219709977-5af084c6-fa9a-4fc6-93de-642b716f2878.png)
 
