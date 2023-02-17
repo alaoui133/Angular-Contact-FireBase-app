@@ -1,0 +1,69 @@
+<app-add-contact></app-add-contact>
+
+<ul class="collection with-header" *ngIf="contacts?.length>0;else noContacts">
+  <div class="row">
+    <li class="collection-item collection-header">
+      <h5>la list des contacts</h5>
+    </li>
+
+    <li class="collection-item" *ngFor="let contact of contacts">
+      <strong>{{contact.name}}</strong> {{contact.telephone}}
+      <button class="btn secondary-content waves-effect" (click)="editContact(contact)">Edit</button>
+      <div class="row" *ngIf="statusContact && contact.id==myContact.id">
+        <form #f="ngForm">
+          <div class="col s12 m6 input-field">
+            <i class="fa fa-user prefix"></i>
+            <input type="text" placeholder="Full name" [(ngModel)]="contact.name" required minlength="4" maxlength="30"
+              pattern="[a-zA-Z\s]+" ngModel name="name" #name="ngModel" class="form-control">
+            <div class="col s10 offset-s2 card-panel  deep-orange " *ngIf="name.touched &&!name.valid">
+              <div *ngIf="name.errors?.['required']">
+                Ce champ et obligatoire
+              </div>
+              <div *ngIf="name.errors?.['minlength']">
+                Ce champ doit avoir au moins 4 chars !!
+              </div>
+              <div *ngIf="name.errors?.['pattern']">
+                name doit etre alpha !!
+              </div>
+
+
+            </div>
+            <label for="">Name</label>
+          </div>
+
+          <div class="col s12 m6 input-field">
+            <i class="fa fa-phone prefix"></i>
+            <input type="text" placeholder="Phone number" name="phone" [(ngModel)]="contact.telephone" required
+              minlength="10" maxlength="12" pattern="[0-9]+" ngModel #phone="ngModel" class="form-control">
+            <div class="col s10 offset-s3 card-panel  deep-orange " *ngIf="phone.touched &&!phone.valid">
+              <div *ngIf="phone.errors?.['required']">
+                Ce champ et obligatoire
+              </div>
+              <div *ngIf="phone.errors?.['minlength']">
+                Ce champ doit avoir au moins 10 chars !!
+              </div>
+              <div *ngIf="phone.errors?.['pattern']">
+                name doit etre numerique !!
+              </div>
+
+
+            </div>
+            <label for="">Phone</label>
+          </div>
+          <br><br><br><br><br><br>
+          <button class="btn orange" onclick="M.toast({html: 'Contact Updated'})" (click)="updateContact(contact)"
+            [disabled]="!f.valid">Update</button>
+          <button class="btn black" onclick="M.toast({html: 'Contact Deleted'})" (click)="deleteContact(contact)"
+            [disabled]="!f.valid">Delete</button>
+
+
+        </form>
+
+      </div>
+
+    </li>
+  </div>
+</ul>
+<ng-template #noContacts>
+  <h5>la list des contacts est vide !!</h5>
+</ng-template>

@@ -1,0 +1,63 @@
+<br>
+<div class="row" *ngIf="statusContact">
+    <div class="">
+        <form #f="ngForm" (ngSubmit)="newContact(contact)">
+            <div ngModelGroup="contact">
+                <div class="form-group">
+                    <div class="input-field">
+                        <i class="fa fa-user prefix"></i>
+                        <input type="text" placeholder="Full name" [(ngModel)]="contact.name" required minlength="4"
+                            maxlength="30" pattern="[a-zA-Z\s]+" ngModel name="name" #name="ngModel"
+                            class="form-control">
+                        <div class="col s10 offset-s2 card-panel  deep-orange " *ngIf="name.touched &&!name.valid">
+                            <div *ngIf="name.errors?.['required']">
+                                Ce champ et obligatoire
+                            </div>
+                            <div *ngIf="name.errors?.['minlength']">
+                                Ce champ doit avoir au moins 4 chars !!
+                            </div>
+                            <div *ngIf="name.errors?.['pattern']">
+                                name doit etre alpha !!
+                            </div>
+
+
+                        </div>
+                        <label for="">Name</label>
+
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="input-field">
+                        <i class="fa fa-phone prefix"></i>
+                        <input type="text" placeholder="Phone number" name="phone" [(ngModel)]="contact.telephone"
+                            required minlength="10" maxlength="12" pattern="[0-9]+" ngModel #phone="ngModel"
+                            class="form-control">
+                        <div class="col s10 offset-s2 card-panel  deep-orange " *ngIf="phone.touched &&!phone.valid">
+                            <div *ngIf="phone.errors?.['required']">
+                                Ce champ et obligatoire
+                            </div>
+                            <div *ngIf="phone.errors?.['minlength']">
+                                Ce champ doit avoir au moins 10 chars !!
+                            </div>
+                            <div *ngIf="phone.errors?.['pattern']">
+                                name doit etre numerique !!
+                            </div>
+
+
+                        </div>
+                        <label for="">Phone</label>
+                    </div>
+                </div>
+                <button onclick="M.toast({html: 'Contact Added successfully'})" type="submit" class="btn-large red"
+                    [disabled]="f.invalid" >Submit</button>
+            </div>
+        </form>
+
+
+    </div>
+
+
+</div>
+<a class="btn-floating btn-large waves-effect waves-light red" (click)="statusContact=!statusContact">
+    <i class="large fa fa-plus"></i>
+</a>
