@@ -33,7 +33,15 @@ Delete (confirmatin) and Update Contact with form validation
 
 # AngularContactApp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.0.
+contact application is a web-based application that allows users to manage their contacts, including adding, editing, deleting, and searching for contacts. In this case, the application is built using Angular 14 and uses Materialize CSS for styling and a routing system to navigate between pages.
+
+The front-end of the application is built using Angular 14 and uses Materialize CSS for styling and user interface. The application also includes a routing system that allows users to navigate between different pages and views within the application.
+
+Users can add new contacts by entering their details such as name, email, phone number, and address. The application provides a form for users to enter these details, and then stores them in a backend database using CRUD (Create, Read, Update, Delete) operations. Users can also view a list of all their contacts, edit the details of an existing contact, or delete a contact altogether. Additionally, the application provides a search functionality that allows users to search for a specific contact by name.
+
+The code for this contact application is available on GitHub and includes detailed instructions on how to set up and run the application. The README file provides information on how to install the necessary dependencies, start the application, and run the tests. The code is well-documented and follows best practices for Angular development, Materialize CSS integration, and routing.
+
+To use this application, you will need to configure a backend database to store and retrieve contact information. Once configured, you can connect the Angular application to the backend database using CRUD operations to manage your contacts. With the application up and running, you can easily manage your contacts and keep your information organized and easily accessible while also enjoying the benefits of Materialize CSS styling and a routing system to navigate between pages.
 
 ## Development server
 
